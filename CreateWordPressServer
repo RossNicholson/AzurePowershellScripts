@@ -1,0 +1,11 @@
+# Login to Azure account
+Login-AzAccount
+
+# Create a new resource group
+New-AzResourceGroup -Name <resource-group-name> -Location <location>
+
+# Deploy a Wordpress server on Azure
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/bitnami-wordpress-on-ubuntu/azuredeploy.json -wpServerName <wordpress-server-name>
+
+# Get the public IP address of the Wordpress server
+Get-AzPublicIpAddress -ResourceGroupName <resource-group-name> -Name <public-ip-address-name>
